@@ -3,6 +3,8 @@
     <style name="Base.Theme.AAD_Project" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
     </style>
 
     <style name="Theme.AAD_Project" parent="Base.Theme.AAD_Project" />
