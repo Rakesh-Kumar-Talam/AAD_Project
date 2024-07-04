@@ -1,0 +1,8 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <style name="Button.Custom" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        </style>
+    </style>
+    <style name="conversationButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">@color/light_gray</item>  </style>
+</resources>
