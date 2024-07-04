@@ -1,31 +1,28 @@
 package com.example.aad_project
 
-import android.annotation.SuppressLint
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-
+    // val x_rapidapi_key=BuildConfig.api_key
     lateinit var recyclerView: RecyclerView
-    lateinit var arraylist: ArrayList<Message>
+    lateinit var arraylist: ArrayList<MessageX>
+    var QueryHandler=QueryHandler()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+       // const val x_rapidapi_key=BuildConfig.api_key
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -59,18 +56,31 @@ class MainActivity : AppCompatActivity() {
                 l=cp
                 k.setLayoutParams(l)
             }
+
         }
+
         val save=findViewById<ImageButton>(R.id.sendbtn)
         val enter_text=findViewById<EditText>(R.id.enter_text)
         save.setOnClickListener {
             if(enter_text.text.isEmpty()){
                 enter_text.error="Enter Message"
             }
+
             else{
-                arraylist.add(Message(enter_text.text.toString(),true))
+                val message=enter_text.text.toString()
+
+                arraylist.add(MessageX(message,true))
                 enter_text.setText("")
-                recyclerView.adapter?.notifyDataSetChanged()
+                Thread{
+
+                    var answer= QueryHandler.createChatCompletion(message).toString()
+                    arraylist.add(MessageX(answer,false))
+                    recyclerView.adapter?.notifyDataSetChanged()
+                    Log.d("TAG" , "onCreate: $answer")
+
+                }.start()
                 recyclerView.scrollToPosition(arraylist.size-1)
+
             }
         }
 

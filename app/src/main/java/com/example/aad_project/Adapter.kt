@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(val data: List<Message>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(val data: List<MessageX>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val message=itemView.findViewById<TextView>(R.id.robot_msg_id)
         val user=itemView.findViewById<ImageView>(R.id.user_icon)

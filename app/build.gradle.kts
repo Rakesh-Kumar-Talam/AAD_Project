@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -6,8 +9,8 @@ plugins {
 android {
     namespace = "com.example.aad_project"
     compileSdk = 34
-
     defaultConfig {
+
         applicationId = "com.example.aad_project"
         minSdk = 24
         targetSdk = 34
@@ -15,8 +18,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val properties=Properties()
+        properties.load(FileInputStream(File(rootProject.rootDir,"local.properties")))
+        buildConfigField("String", "api_key", "${properties.getProperty("api_key")}")
     }
-
+    buildFeatures{
+        buildConfig=true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -46,4 +54,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation(libs.okhttp)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 }
