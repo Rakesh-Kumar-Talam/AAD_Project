@@ -24,6 +24,7 @@ android {
     }
     buildFeatures{
         buildConfig=true
+
     }
     buildTypes {
         release {
@@ -41,6 +42,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
