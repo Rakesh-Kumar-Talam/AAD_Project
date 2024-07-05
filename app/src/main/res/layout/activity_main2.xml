@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    tools:context=".MainActivity2"
     android:layout_height="match_parent">
 
     <TextView
@@ -15,24 +14,22 @@
         android:textSize="36sp"
         android:textStyle="bold"
         android:gravity="center_horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_new_chat" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_new_chat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="New Chat"
+        android:textColor="@color/black"
         android:backgroundTint="@color/colorButtonBackground"
         android:drawableLeft="@drawable/add_icon"
         android:drawablePadding="8dp"
-        android:text="New Chat"
-        android:textColor="@color/black"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/conversation_list"
@@ -41,44 +38,9 @@
         android:orientation="vertical"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_clear_conversations"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_new_chat">
-
-        <Button
-            android:id="@+id/button_conversation_1"
-            style="@style/conversationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
-            android:drawableRight="@drawable/baseline_delete_outline_24"
-            android:drawablePadding="8dp"
-            android:text="Conversation 1" />
-
-        <Button
-            android:id="@+id/button_conversation_2"
-            style="@style/conversationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
-            android:drawableRight="@drawable/baseline_delete_outline_24"
-            android:drawablePadding="8dp"
-            android:text="Conversation 2" />
-
-        <Button
-            android:id="@+id/button_conversation_3"
-            style="@style/conversationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
-            android:drawableRight="@drawable/baseline_delete_outline_24"
-            android:drawablePadding="8dp"
-            android:text="Conversation 3" />
+        app:layout_constraintTop_toBottomOf="@id/button_new_chat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
     </LinearLayout>
 
@@ -86,17 +48,15 @@
         android:id="@+id/button_clear_conversations"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="536dp"
+        android:backgroundTint="@android:color/white"
+        android:drawableLeft="@drawable/baseline_delete_outline_24_blue"
         android:text="Clear Conversations"
         android:textColor="@color/blue"
-        android:backgroundTint="@color/white"
-        android:layerType="hardware"
-        android:stroke="@color/light_grey"
-        android:strokeWidth="@dimen/one_dp"
-        android:drawableLeft="@drawable/baseline_delete_outline_24_blue"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conversation_list"
-        app:layout_constraintBottom_toTopOf="@+id/button_my_account" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conversation_list" />
 
     <Button
         android:id="@+id/button_my_account"
@@ -104,18 +64,46 @@
         android:layout_height="wrap_content"
         android:text="My Account"
         android:textColor="@color/blue"
-        android:backgroundTint="@color/white"
-        android:layerType="hardware"
-        android:stroke="@color/light_grey"
-        android:strokeWidth="@dimen/one_dp"
+        android:backgroundTint="@android:color/white"
         android:drawableLeft="@drawable/baseline_account_circle_24"
-        app:layout_constraintBottomToBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/button_clear_conversations"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/button_conversation_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
+        android:drawableRight="@drawable/baseline_delete_outline_24"
+        android:drawablePadding="8dp"
+        android:text="Conversation 3"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/button_conversation_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
+        android:drawableRight="@drawable/baseline_delete_outline_24"
+        android:drawablePadding="8dp"
+        android:text="Conversation 2"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <Button
+        android:id="@+id/button_conversation_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_chat_bubble_outline_24"
+        android:drawableRight="@drawable/baseline_delete_outline_24"
+        android:drawablePadding="8dp"
+        android:text="Conversation 1"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="120dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
