@@ -1,9 +1,6 @@
 package com.example.aad_project
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,7 @@ class HomeActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        recyclerview = findViewById(R.id.recyclerview)
+        recyclerview = findViewById(R.id.recyclerview2)
 
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.setHasFixedSize(true)
