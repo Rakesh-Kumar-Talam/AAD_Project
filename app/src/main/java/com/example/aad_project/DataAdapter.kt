@@ -7,13 +7,25 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DataAdapter(var data:ArrayList<String>): RecyclerView.Adapter<DataAdapter.ViewHolder>(){
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textView = view.findViewById<TextView>(R.id.textView2)
-        val imageButton = view.findViewById<ImageButton>(R.id.imageButton5)
+class DataAdapter(var data: ArrayList<String?>): RecyclerView.Adapter<DataAdapter.ViewHolder>(){
+    lateinit var onClick:onitemclick
+    interface onitemclick{
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(listener: onitemclick){
+        onClick = listener
+    }
+    class ViewHolder(view: View,onClick: onitemclick): RecyclerView.ViewHolder(view) {
+        val textView: TextView = view.findViewById<TextView>(R.id.textView2)
+        val imageButton: ImageButton = view.findViewById<ImageButton>(R.id.imageButton5)
+        init {
+            view.setOnClickListener {
+                onClick.onItemClick(adapterPosition)
+            }
+        }
     }
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_row,parent,false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_row,parent,false),onClick)
     }
 
     override fun getItemCount(): Int {

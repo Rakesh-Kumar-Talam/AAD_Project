@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity(){
-    var data = arrayListOf("india is a big country with 3 sides water","english","android","computers")
+    private var data:ArrayList<String?> = arrayListOf("india is a big country with 3 sides water","english","android","computers")
     lateinit var recyclerview: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContentView(R.layout.activity_home)
         recyclerview = findViewById(R.id.recyclerview2)
 

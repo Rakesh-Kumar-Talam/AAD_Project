@@ -3,6 +3,9 @@ package com.example.aad_project
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -28,10 +31,12 @@ class MainActivity3 : AppCompatActivity() {
             v.setPadding(systemBars.left , systemBars.top , systemBars.right , systemBars.bottom)
             insets
         }
+        val name=intent.getStringExtra("name")
+        supportActionBar?.title=name
         arraylist= arrayListOf()
 
         recyclerView = findViewById(R.id.rv)
-        recyclerView.adapter=Adapter(arraylist)
+        recyclerView.adapter=MessageAdapter(arraylist)
         recyclerView.layoutManager= LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         val rootView = findViewById<View>(android.R.id.content) // Get the root view of your activity
@@ -71,7 +76,6 @@ class MainActivity3 : AppCompatActivity() {
                 arraylist.add(MessageX(message,true))
                 enter_text.setText("")
                 Thread{
-
                     var answer= QueryHandler.createChatCompletion(message).toString()
                     arraylist.add(MessageX(answer,false))
                     recyclerView.scrollToPosition(arraylist.size-1)
@@ -83,6 +87,5 @@ class MainActivity3 : AppCompatActivity() {
 
             }
         }
-
     }
 }
