@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity2 : AppCompatActivity() {
+class ChatPage : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var arraylist: ArrayList<MessageX>
@@ -22,7 +22,7 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.chat_page_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v , insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left , systemBars.top , systemBars.right , systemBars.bottom)

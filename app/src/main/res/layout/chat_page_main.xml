@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity2">
+    tools:context=".ChatPage">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,14 +51,14 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/sendbutton"
-            android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/enter_text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/send" />
+            app:srcCompat="@drawable/send"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
