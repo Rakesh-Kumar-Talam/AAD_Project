@@ -9,6 +9,7 @@ plugins {
 android {
     namespace = "com.example.aad_project"
     compileSdk = 34
+
     defaultConfig {
 
         applicationId = "com.example.aad_project"
@@ -53,6 +54,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.ui.geometry.android)
+    implementation(libs.androidx.legacy.support.v4)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
