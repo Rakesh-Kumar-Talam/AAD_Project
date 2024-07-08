@@ -74,6 +74,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     var answer= QueryHandler.createChatCompletion(message).toString()
                     arraylist.add(MessageX(answer,false))
+                    recyclerView.scrollToPosition(arraylist.size-1)
                     recyclerView.adapter?.notifyDataSetChanged()
                     Log.d("TAG" , "onCreate: $answer")
 
