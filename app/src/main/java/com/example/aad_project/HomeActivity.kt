@@ -20,7 +20,6 @@ class HomeActivity : AppCompatActivity(){
         recyclerview.setHasFixedSize(true)
         var dataAdapter = DataAdapter(data)
         recyclerview.adapter = dataAdapter
-
     }
 
 
