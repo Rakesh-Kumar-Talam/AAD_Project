@@ -19,9 +19,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        val properties=Properties()
-        properties.load(FileInputStream(File(rootProject.rootDir,"local.properties")))
-        buildConfigField("String", "api_key", properties.getProperty("api_key"))
     }
     buildFeatures{
         buildConfig=true
