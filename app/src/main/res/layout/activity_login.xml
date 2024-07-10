@@ -40,7 +40,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/login_buttom"
         android:text="@string/login"
@@ -48,5 +51,14 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:backgroundTint="@color/blue"/>
+    <TextView
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/SignupNow"
+        android:text="@string/click_to_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
